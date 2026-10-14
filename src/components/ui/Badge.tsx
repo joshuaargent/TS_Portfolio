@@ -9,11 +9,10 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?:
     | 'default'
     | 'accent'
-    | 'faith'
-    | 'psychology'
+    | 'writeups'
+    | 'labs'
+    | 'notes'
     | 'health'
-    | 'performance'
-    | 'code'
     | 'outline';
   size?: 'sm' | 'md' | 'lg';
 }
@@ -25,11 +24,10 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 const variantStyles: Record<string, string> = {
   default: 'bg-bg-secondary text-text-secondary border border-border',
   accent: 'bg-accent-light text-accent',
-  faith: 'bg-violet-100 text-violet-700',
-  psychology: 'bg-blue-100 text-blue-700',
+  writeups: 'bg-violet-100 text-violet-700',
+  labs: 'bg-blue-100 text-blue-700',
+  notes: 'bg-gray-100 text-gray-700',
   health: 'bg-green-100 text-green-700',
-  performance: 'bg-orange-100 text-orange-700',
-  code: 'bg-cyan-100 text-cyan-700',
   outline: 'border border-border text-text-secondary',
 };
 
