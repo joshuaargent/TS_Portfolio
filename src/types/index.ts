@@ -33,7 +33,7 @@ export interface NavItem {
 }
 
 // ----- Content Types -----
-export type ContentCategory = 'write-ups' | 'labs' | 'notes';
+export type ContentCategory = 'writeups' | 'labs' | 'notes';
 export type ProjectStatus = 'active' | 'completed' | 'archived';
 
 // ----- Project -----
