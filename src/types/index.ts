@@ -112,7 +112,7 @@ export interface ProjectEntry {
   highlights: string[];
 }
 
-export interface CVData {
+export interface ResumeData {
   summary: string;
   education: Education[];
   skills: Skill[];
