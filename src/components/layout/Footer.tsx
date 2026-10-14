@@ -135,7 +135,7 @@ export function Footer() {
               Content
             </h3>
             <ul className="mt-4 space-y-2">
-              {footerNav.content.map((item) => (
+              {(footerNav.content as { href: string; label: string }[]).map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -162,7 +162,7 @@ export function Footer() {
                   Email
                 </a>
               </li>
-              {footerNav.social.map((item) => (
+              {(footerNav.social as { href: string; label: string }[]).map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
