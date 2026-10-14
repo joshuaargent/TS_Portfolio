@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://joshuaargent.vercel.app',
   ogImage: '/og-image.png',
   links: {
-    email: 'mailto:argentjackjoshua@gmail.com',
+    email: 'argentjackjoshua@gmail.com',
     github: 'https://github.com/joshuaargent',
     linkedin: 'https://linkedin.com/in/joshuaargent',
     youtube: 'https://youtube.com/@joshua_argent',
