@@ -2,13 +2,13 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PostCard } from '@/components/blog/PostCard';
-import { BlogSearchSection } from '@/components/blog/BlogSearchSection';
+import { SearchBarWrapper } from '@/components/shared/SearchBarWrapper';
 import { getBlogPosts, getFeaturedBlogPosts } from '@/data/blog';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: "Thoughts, essays, and notes on things I'm learning.",
+  description: "Writeups, labs and notes on things I'm learning.",
 };
 
 export default async function BlogPage() {
@@ -18,12 +18,14 @@ export default async function BlogPage() {
     <>
       <PageHeader
         title="Blog"
-        description="Thoughts, essays, and notes on things I'm learning about faith, psychology, health, and performance."
+        description="Writeups, labs and notes on things I'm learning."
       />
 
       <section className="pb-12 md:pb-16">
         <div className="container">
-          <BlogSearchSection posts={posts} />
+          <div className="mb-8">
+            <SearchBarWrapper posts={posts} placeholder="Search posts..." />
+          </div>
 
           {featuredPosts.length > 0 && (
             <div className="mb-12">
