@@ -6,7 +6,7 @@ import { SiteConfig, NavItem } from '@/types';
 
 export const siteConfig: SiteConfig = {
   name: 'Joshua Argent',
-  description: 'Web developer exploring application security.',
+  description: 'Web developer exploring application security',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://joshuaargent.vercel.app',
   ogImage: '/og-image.png',
   links: {
@@ -20,7 +20,7 @@ export const siteConfig: SiteConfig = {
   },
   author: {
     name: 'Joshua Argent',
-    bio: 'Web developer exploring application security.',
+    bio: 'Web developer exploring application security',
     avatar: '/images/avatar.jpg',
   },
 };
@@ -172,7 +172,7 @@ export const externalLinks = {
 
 export const meta = {
   title: 'Joshua Argent',
-  description: 'Web developer exploring application security.',
+  description: 'Web developer exploring application security',
   github: 'https://github.com/joshuaargent',
   keywords: [
     'Joshua',
