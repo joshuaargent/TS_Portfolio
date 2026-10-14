@@ -1,17 +1,18 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { SearchBar } from '@/components/shared/SearchBar';
+import { SearchBar } from './SearchBar';
 import { BlogPost } from '@/types';
 import { PostCard } from '@/components/blog/PostCard';
 import { EmptyState } from '@/components/shared/EmptyState';
 import { Search } from 'lucide-react';
 
-interface BlogSearchSectionProps {
+interface SearchBarWrapperProps {
+  placeholder?: string;
   posts: BlogPost[];
 }
 
-export function BlogSearchSection({ posts }: BlogSearchSectionProps) {
+export function SearchBarWrapper({ placeholder = 'Search...', posts }: SearchBarWrapperProps) {
   const [query, setQuery] = useState('');
 
   const filteredPosts = useMemo(() => {
@@ -31,8 +32,8 @@ export function BlogSearchSection({ posts }: BlogSearchSectionProps) {
   };
 
   return (
-    <div className="mb-8">
-      <SearchBar onSearch={handleSearch} placeholder="Search posts..." defaultValue={query} />
+    <>
+      <SearchBar onSearch={handleSearch} placeholder={placeholder} defaultValue={query} />
 
       {query && (
         <div className="mt-8">
@@ -68,6 +69,6 @@ export function BlogSearchSection({ posts }: BlogSearchSectionProps) {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }
