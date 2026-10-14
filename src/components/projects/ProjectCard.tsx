@@ -128,7 +128,7 @@ export function ProjectCard({ project, showImage = true }: ProjectCardProps) {
             </Button>
           )}
           <Button variant="ghost" size="sm" asChild>
-            <Link href={`/code/${project.slug}`}>
+            <Link href={`/projects/${project.slug}`}>
               Details
               <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
             </Link>

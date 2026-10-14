@@ -24,7 +24,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       {/* Header */}
       <div className="mb-8">
         <Link
-          href="/code"
+          href="/projects"
           className="text-text-secondary hover:text-accent inline-flex items-center gap-1.5 text-sm transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
