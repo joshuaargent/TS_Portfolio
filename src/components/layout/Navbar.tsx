@@ -17,8 +17,9 @@ import { useTheme } from '@/components/providers/ThemeProvider';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [mobileMenuState, setMobileMenuState] = useState({ open: false, pathname });
+  const isMobileMenuOpen = mobileMenuState.open && mobileMenuState.pathname === pathname;
   const { theme, toggleTheme } = useTheme();
 
   // Handle scroll effect
@@ -30,11 +31,6 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -105,7 +101,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               className="md:hidden text-text-primary"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setMobileMenuState({ open: !isMobileMenuOpen, pathname })}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -156,7 +152,7 @@ export function Navbar() {
                   <button
                     onClick={() => {
                       toggleTheme();
-                      setIsMobileMenuOpen(false);
+                      setMobileMenuState({ open: false, pathname });
                     }}
                     className="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 px-4 py-2 border border-border bg-bg-card text-text-primary hover:bg-bg-secondary"
                   >
