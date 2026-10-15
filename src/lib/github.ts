@@ -19,7 +19,7 @@ export async function getGitHubRepos(): Promise<GitHubRepo[]> {
       headers.Authorization = `token ${GITHUB_TOKEN}`;
     }
 
-    const repos: any[] = [];
+    const repos: GitHubRepo[] = [];
     let page = 1;
     let hasNextPage = true;
 
@@ -37,7 +37,7 @@ export async function getGitHubRepos(): Promise<GitHubRepo[]> {
         throw new Error(`GitHub API error: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data: GitHubRepo[] = await response.json();
       
       if (!data.length || data.length === 0) {
         hasNextPage = false;
@@ -52,21 +52,21 @@ export async function getGitHubRepos(): Promise<GitHubRepo[]> {
     }
 
     return repos
-      .filter((repo: any) => !repo.fork)
-      .map((repo: any) => ({
+      .filter((repo) => !repo.isFork)
+      .map((repo) => ({
         id: repo.id,
         name: repo.name,
-        fullName: repo.full_name,
+        fullName: repo.fullName,
         description: repo.description || repo.name,
-        url: repo.html_url,
+        url: repo.url,
         homepage: repo.homepage || undefined,
-        stars: repo.stargazers_count,
-        forks: repo.forks_count,
-        language: repo.language || undefined,
+        stars: repo.stars,
+        forks: repo.forks,
+        language: repo.language || 'Unknown',
         topics: repo.topics || [],
-        createdAt: repo.created_at,
-        updatedAt: repo.updated_at,
-        isFork: repo.fork,
+        createdAt: repo.createdAt,
+        updatedAt: repo.updatedAt,
+        isFork: repo.isFork,
       }));
   } catch (error) {
     // Fail silently - return empty array for graceful degradation
