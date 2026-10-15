@@ -75,7 +75,7 @@ export interface BlogPost {
   relatedContent?: string[];
 }
 
-// ----- CV / Experience -----
+// ----- Resume Data -----
 export interface Experience {
   id: string;
   role: string;
