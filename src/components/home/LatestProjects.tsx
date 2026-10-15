@@ -2,7 +2,7 @@ import { getProjects } from '@/data/projects';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 
-export async function LatestProject() {
+export async function LatestProjects() {
   const projects = await getProjects();
   const latestProjects = projects
     .sort(
