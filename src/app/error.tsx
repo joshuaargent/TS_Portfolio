@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { AlertCircle, RefreshCw, Home } from 'lucide-react';
 
@@ -38,13 +39,13 @@ export default function Error({
             <RefreshCw className="mr-2 h-4 w-4" />
             Try Again
           </Button>
-          <a
+          <Link
             href="/"
             className="focus-visible:ring-accent inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-[#E7E5E4] bg-transparent px-5 text-base font-medium text-[#1C1917] transition-all duration-200 hover:bg-[#F5F5F4] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             <Home className="mr-2 h-4 w-4" />
             Go Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
