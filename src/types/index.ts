@@ -21,6 +21,8 @@ export interface SiteConfig {
     name: string;
     bio: string;
     avatar: string;
+    tagline: string;
+    location: string;
   };
 }
 

@@ -1,12 +1,14 @@
 import { SiteConfig, NavItem } from '@/types';
 
+const siteDescription = 'Web developer exploring application security';
+
 // ============================================
 // Site Configuration
 // ============================================
 
 export const siteConfig: SiteConfig = {
   name: 'Joshua Argent',
-  description: 'Web developer exploring application security',
+  description: siteDescription,
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://joshuaargent.vercel.app',
   ogImage: '/og-image.png',
   links: {
@@ -20,10 +22,51 @@ export const siteConfig: SiteConfig = {
   },
   author: {
     name: 'Joshua Argent',
-    bio: 'Web developer exploring application security',
+    bio: siteDescription,
     avatar: '/images/avatar.jpg',
+    tagline: 'Developer and content creator',
+    location: 'Surrey, United Kingdom',
   },
 };
+
+export const socialProfiles = [
+  {
+    label: 'GitHub',
+    platform: 'github',
+    href: siteConfig.links.github,
+    handle: '@joshuaargent',
+  },
+  {
+    label: 'LinkedIn',
+    platform: 'linkedin',
+    href: siteConfig.links.linkedin,
+    handle: 'Joshua Argent',
+  },
+  {
+    label: 'YouTube',
+    platform: 'youtube',
+    href: siteConfig.links.youtube,
+    handle: '@joshua_argent',
+  },
+  {
+    label: 'Instagram',
+    platform: 'instagram',
+    href: siteConfig.links.instagram,
+    handle: '@joshua_argent',
+  },
+  {
+    label: 'Facebook',
+    platform: 'facebook',
+    href: siteConfig.links.facebook,
+    handle: '@joshua_argent',
+  },
+  {
+    label: 'TikTok',
+    platform: 'tiktok',
+    href: siteConfig.links.tiktok,
+    handle: '@joshua_argent',
+  },
+] as const;
 
 // ============================================
 // Navigation
@@ -47,17 +90,8 @@ export const footerNav = {
     { label: 'Resume', href: '/resume' },
     { label: 'Contact', href: '/contact' },
   ],
-  content: [
-    
-  ],
-  social: [
-    { label: 'GitHub', href: 'https://github.com/joshuaargent' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/joshuaargent' },
-    { label: 'YouTube', href: 'https://youtube.com/@joshua_argent' },
-    { label: 'Instagram', href: 'https://instagram.com/joshua_argent' },
-    { label: 'Facebook', href: 'https://facebook.com/joshua_argent' },
-    { label: 'TikTok', href: 'https://www.tiktok.com/@joshua_argent' },
-  ],
+  content: [],
+  social: socialProfiles.map(({ label, href }) => ({ label, href })),
 };
 
 // ============================================
