@@ -15,7 +15,7 @@ export const resumeData: ResumeData = {
       name: 'Personal Portfolio',
       description:
         'This website - I built it to showcase my work and skills. It pulls data from GitHub for maintainability.',
-      techStack: ['Next.js', 'React', 'TypeScript', 'GitHub API', 'Vercel'],
+      techStack: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'GitHub API', 'Vercel'],
       url: 'https://github.com/joshuaargent/portfolio',
       highlights: ['Integrated GitHub API for real time data display'],
     },
