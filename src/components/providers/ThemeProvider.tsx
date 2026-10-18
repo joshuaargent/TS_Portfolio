@@ -5,6 +5,7 @@ import {
   useContext,
   useEffect,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from 'react';
 
@@ -26,33 +27,30 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const subscribeToNothing = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 // ============================================
 // Provider Component
 // ============================================
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light');
-  const [isMounted, setIsMounted] = useState(false);
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return 'light';
 
-  // Initialize theme from localStorage or system preference
-  useEffect(() => {
-    setIsMounted(true);
-    
     const storedTheme = localStorage.getItem('theme') as Theme | null;
-    
-    if (storedTheme) {
-      setThemeState(storedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setThemeState('dark');
-    }
-  }, []);
+    if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+  const isMounted = useSyncExternalStore(subscribeToNothing, getClientSnapshot, getServerSnapshot);
 
   // Apply theme to document when it changes
   useEffect(() => {
     if (!isMounted) return;
 
     const root = document.documentElement;
-    
+
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {
@@ -67,7 +65,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (!isMounted) return;
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
+
     const handleChange = (e: MediaQueryListEvent) => {
       const storedTheme = localStorage.getItem('theme');
       if (!storedTheme) {
@@ -105,7 +103,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  
+
   // Return default values if used outside ThemeProvider
   if (context === undefined) {
     return {
@@ -114,6 +112,6 @@ export function useTheme() {
       setTheme: () => {},
     };
   }
-  
+
   return context;
 }
