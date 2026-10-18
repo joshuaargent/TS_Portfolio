@@ -169,11 +169,20 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const historyRef = useRef<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
+  const hasMountedRef = useRef(false);
   const files = useMemo(() => buildFiles(resume), [resume]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
+    const terminalBody = terminalBodyRef.current;
+    if (terminalBody) {
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
   }, [lines]);
 
   const handleKeyDown = useCallback(
@@ -272,7 +281,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
           subtitle="A hands-on way to explore my background. Try commands like skills, projects, or experience."
         />
 
-        <Card padding="none" className="mx-auto mt-6 max-w-4xl overflow-hidden font-mono text-sm leading-relaxed">
+        <Card padding="none" className="mt-6 w-full overflow-hidden font-mono text-sm leading-relaxed">
           <div className="flex items-center gap-2 border-b border-border bg-bg-secondary px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden="true" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-400" aria-hidden="true" />
@@ -284,6 +293,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
           </div>
 
           <div
+            ref={terminalBodyRef}
             className="h-80 cursor-text overflow-y-auto bg-bg-card p-4 text-text-secondary sm:p-5"
             onClick={() => !exited && inputRef.current?.focus()}
             role="log"
@@ -332,11 +342,10 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
                   autoCapitalize="off"
                   spellCheck={false}
                   aria-label="Enter a terminal command"
-                  className="min-w-0 flex-1 bg-transparent text-text-primary caret-accent outline-none"
+                  className="min-w-0 flex-1 bg-transparent text-text-primary caret-accent outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
                 />
               </div>
             )}
-            <div ref={bottomRef} />
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-bg-secondary px-4 py-3 text-xs text-text-muted">
