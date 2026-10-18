@@ -1,75 +1,90 @@
-# Joshua Argent | Portfolio
+<div align="center">
 
-A personal portfolio showcasing my full stack development work, projects, writing, and current
-learning. Built with Next.js, React, and TypeScript.
+# Joshua Argent
 
-## About the project
+### Full stack developer exploring application security
 
-The site brings together:
+Building useful web applications, sharing what I learn, and growing toward a career in cyber
+security.
 
-- **Homepage** — introduction, recently updated GitHub projects, latest blog posts, a featured
-  project, and an interactive terminal that explores information from my CV.
-- **Projects** — GitHub repositories, project details, technology tags, and repository statistics.
-- **Blog** — posts, categories, tags, and an archive.
-- **About and resume** — my background, skills, education, experience, and career interests.
-- **Contact** — contact details and an optional Formspree powered form.
-- **Site metadata** — sitemap, robots rules, and an RSS feed.
+[![Portfolio](https://img.shields.io/badge/Portfolio-joshuaargent.vercel.app-0D9488?style=for-the-badge&logo=vercel&logoColor=white)](https://joshuaargent.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-joshuaargent-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/joshuaargent)
 
-Project listings are retrieved from the GitHub API. Blog posts and resume information are maintained
-in the source data files.
+<br />
 
-## Technology
+![Next.js 16](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)
+![React 19](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
+![TypeScript 5](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 
-| Area                           | Tools                                 |
-| ------------------------------ | ------------------------------------- |
-| Framework                      | Next.js 16 with the App Router        |
-| Language                       | TypeScript                            |
-| UI                             | React 19                              |
-| Styling                        | Tailwind CSS 4                        |
-| Icons                          | Lucide React                          |
-| Markdown and code highlighting | Marked, MDX Remote, Shiki, Rehype     |
-| Analytics                      | Vercel Analytics and Speed Insights   |
-| Testing                        | Vitest, Testing Library, and jsdom    |
-| Formatting                     | Prettier with the Tailwind CSS plugin |
-| Linting                        | ESLint                                |
+</div>
 
-## Getting started
+---
+
+## About this project
+
+This is my personal portfolio: a place to present the things I build, document what I’m learning,
+and give people a way to get to know me. I started learning web development during the summer
+between Year 11 and Year 12. I now work across the full stack and am beginning to explore
+application security as a future career direction.
+
+The site is built with Next.js, React, and TypeScript. It combines project data from GitHub with
+blog posts and resume information maintained in the codebase.
+
+## What you’ll find here
+
+- **Projects** - GitHub repositories, project descriptions, technologies, and repository details.
+- **Writing** - blog posts with categories, tags, individual post pages, and an archive.
+- **About and resume** - background, skills, education, and experience.
+- **Interactive terminal** - an alternative way to explore selected resume information from the
+  homepage.
+- **Contact** - social links and an optional Formspree contact form.
+- **Feed and discoverability** - generated sitemap, robots rules, and RSS feed.
+- **Responsive design** - a consistent interface with light and dark themes.
+
+## Built with
+
+| Area                   | Technology                          |
+| ---------------------- | ----------------------------------- |
+| Framework              | Next.js 16 · App Router             |
+| UI                     | React 19                            |
+| Language               | TypeScript 5                        |
+| Styling                | Tailwind CSS 4                      |
+| UI icons               | Lucide React                        |
+| Interactive navigation | Framer Motion                       |
+| Markdown parsing       | Marked                              |
+| Date formatting        | date-fns                            |
+| Analytics              | Vercel Analytics and Speed Insights |
+| Code quality           | ESLint and Prettier                 |
+
+## Run locally
 
 ### Requirements
 
-- Node.js 20 or later
+- Node.js 20 or newer
 - npm
 
-### Install
+### Setup
 
 ```bash
 git clone https://github.com/joshuaargent/TS_Portfolio.git
 cd TS_Portfolio
 npm install
-```
-
-Create a `.env.local` file in the project root for any integrations you want to enable (see
-[Environment variables](#environment-variables)).
-
-### Run locally
-
-```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Environment variables
+## Configuration
 
-All integrations are optional for local development. Set the following variables in `.env.local` as
-needed:
+Integrations are optional. Add only the variables you need to `.env.local` in the project root:
 
-| Variable                        | Purpose                                                                                                 |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `GITHUB_USERNAME`               | GitHub account used to load repositories. Without it, the project list is empty.                        |
-| `GITHUB_TOKEN`                  | Optional GitHub personal access token for higher API rate limits.                                       |
-| `NEXT_PUBLIC_SITE_URL`          | Canonical site URL used in metadata, the sitemap, and RSS feed. Defaults to the deployed portfolio URL. |
-| `NEXT_PUBLIC_FORMSPREE_FORM_ID` | Optional Formspree form ID that enables contact form submissions.                                       |
+| Variable                        | Purpose                                                                                               |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `GITHUB_USERNAME`               | GitHub account whose repositories are displayed.                                                      |
+| `GITHUB_TOKEN`                  | Optional token to increase GitHub API rate limits.                                                    |
+| `NEXT_PUBLIC_SITE_URL`          | Canonical site URL used for metadata, sitemap, and RSS links. Defaults to the deployed portfolio URL. |
+| `NEXT_PUBLIC_FORMSPREE_FORM_ID` | Optional Formspree form ID to enable contact form submissions.                                        |
 
 Example:
 
@@ -80,65 +95,58 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_FORMSPREE_FORM_ID=your-form-id
 ```
 
-Do not commit `.env.local` or private tokens. The repository's `.gitignore` excludes local
-environment files.
+Never commit secrets or local environment files. `.env` and `.env*.local` are ignored by Git.
 
-## Useful commands
+## Project scripts
 
-| Command                | Description                                         |
-| ---------------------- | --------------------------------------------------- |
-| `npm run dev`          | Start the development server.                       |
-| `npm run build`        | Create a production build.                          |
-| `npm run start`        | Serve the production build.                         |
-| `npm run lint`         | Run ESLint.                                         |
-| `npm run lint:fix`     | Automatically fix supported lint issues.            |
-| `npm run type-check`   | Run the TypeScript compiler without emitting files. |
-| `npm run format`       | Format project files with Prettier.                 |
-| `npm run format:check` | Check formatting without changing files.            |
-| `npm run test`         | Run Vitest in watch mode.                           |
-| `npm run test:run`     | Run Vitest once.                                    |
+| Command                | Description                       |
+| ---------------------- | --------------------------------- |
+| `npm run dev`          | Start the development server.     |
+| `npm run build`        | Create a production build.        |
+| `npm run start`        | Run the production build locally. |
+| `npm run lint`         | Check the code with ESLint.       |
+| `npm run lint:fix`     | Apply automatic ESLint fixes.     |
+| `npm run type-check`   | Check TypeScript types.           |
+| `npm run format`       | Format files with Prettier.       |
+| `npm run format:check` | Check Prettier formatting.        |
 
-VS Code workspace settings enable format-on-save with the Prettier extension.
+VS Code workspace settings enable Prettier formatting on save when the Prettier extension is
+installed.
 
-## Project structure
+## Where things live
 
 ```text
 .
 ├── public/                 # Static assets and site icons
 └── src/
-    ├── app/                # Next.js routes and metadata endpoints
-    │   ├── about/
-    │   ├── blog/
-    │   ├── contact/
-    │   ├── projects/
-    │   └── resume/
-    ├── components/         # Page, layout, and reusable UI components
-    │   ├── blog/
-    │   ├── home/
-    │   ├── layout/
-    │   ├── projects/
-    │   ├── shared/
-    │   └── ui/
-    ├── data/               # Blog, project, and resume data access
-    ├── lib/                # GitHub integration, formatting, and utilities
+    ├── app/                # Pages, routes, and metadata endpoints
+    ├── components/         # Page sections and reusable UI
+    ├── data/               # Blog, project, and resume data
+    ├── lib/                # GitHub integration and shared utilities
     └── types/              # Shared TypeScript types
 ```
 
-### Updating site content
+### Updating content
 
-- Add or edit blog entries in `src/data/blog.ts`.
-- Edit resume, skills, education, and experience in `src/data/resume.ts`.
-- Project cards are populated from the configured GitHub account. Project detail pages are available
-  for the repositories returned by the GitHub integration.
-- Update site details, social links, and the default canonical URL in `src/lib/constants.ts`.
+- Blog posts: `src/data/blog.ts`
+- Resume, skills, education, and experience: `src/data/resume.ts`
+- Site details and social links: `src/lib/constants.ts`
+- Projects: configure `GITHUB_USERNAME`; project cards are populated from the GitHub API.
 
 ## Deployment
 
-The site can be deployed to Vercel or another platform that supports Next.js. Configure the
-environment variables required for your chosen integrations in the deployment environment before
-building.
+The site is deployed on [Vercel](https://vercel.com) and can also be hosted on platforms that
+support Next.js. Set the relevant environment variables in your deployment settings before building.
 
 ## License
 
-No license is currently specified for this repository. Contact the author before reusing or
-redistributing its code.
+This repository does not currently include a license. All rights are reserved unless the author
+grants permission; please contact me before reusing or redistributing the code.
+
+---
+
+<div align="center">
+
+Made by [Joshua Argent](https://joshuaargent.vercel.app)
+
+</div>
