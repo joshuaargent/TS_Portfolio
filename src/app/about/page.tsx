@@ -221,7 +221,7 @@ export default async function AboutPage() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button asChild>
-                  <Link href="/projects">
+                  <Link href="/projects" className="!text-white hover:!text-white">
                     View projects
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
