@@ -96,7 +96,7 @@ function runCommand(
     case 'help':
       return {
         lines: outputLines([
-          'Explore Joshua’s portfolio:',
+          "Explore Joshua's portfolio:",
           '  whoami       who is behind this portfolio',
           '  about        developer summary',
           '  skills       languages, frameworks, and tools',
@@ -174,7 +174,7 @@ function runCommand(
 
 export default function FakeTerminal({ resume }: { resume: ResumeData }) {
   const [lines, setLines] = useState<TerminalLine[]>([
-    { type: 'output', text: 'Welcome to Joshua’s portfolio terminal.' },
+    { type: 'output', text: "Welcome to Joshua Argent's portfolio terminal." },
     { type: 'output', text: 'Type "help" to explore skills, projects, and experience.' },
   ]);
   const [input, setInput] = useState('');
