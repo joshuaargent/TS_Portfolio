@@ -319,26 +319,6 @@ export default async function ResumePage() {
               </div>
             </div>
 
-            <div>
-              <h2 className="text-text-primary mb-6 flex items-center gap-2 text-2xl font-bold">
-                <Heart className="text-accent h-5 w-5" />
-                Additional Skills & Strengths
-              </h2>
-              <Card>
-                <ul className="space-y-2">
-                  {resume.additionalSkills && resume.additionalSkills.map((skill, index) => (
-                    <li
-                      key={index}
-                      className="text-text-secondary flex items-start gap-2"
-                    >
-                      <span className="text-accent mt-1">•</span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </div>
-
             <div className="text-center">
               <Card className="bg-accent-light">
                 <h2 className="text-text-primary mb-2 text-2xl font-bold">

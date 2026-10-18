@@ -121,7 +121,6 @@ export interface ResumeData {
   workExperience: Experience[];
   employment: Experience[];
   projects?: ProjectEntry[];
-  additionalSkills?: string[];
   certifications: Certification[];
 }
 
