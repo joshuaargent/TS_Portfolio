@@ -47,18 +47,13 @@ export default async function AboutPage() {
               <div className="text-text-secondary mt-5 space-y-4 text-lg leading-relaxed">
                 <p>
                   I got into web development during the summer holiday between Year 11 and Year 12.
-                  This started as me being curious and quickly became something I  wanted to learn a
+                  This started as me just being curious but quickly became something I  wanted to learn a
                   lot more about.
                 </p>
                 <p>
-                  Since then, I’ve developed a foundation across the full stack, working with
-                  TypeScript, React, Next.js, Node.js, and APIs. I enjoy turning an idea into
-                  a useful product and understanding how its different parts fit together.
-                </p>
-                <p>
-                  I’m currently in Year 13, studying{' '}
-                  {aLevels?.highlights?.join(', ') ?? 'my A-levels'}, and building toward a career
-                  in cyber security.
+                  Since then, I've developed a foundation across the full stack, working with
+                  TypeScript, React, Next.js, Node.js, and APIs. I enjoy turning some of the ideas I have into
+                  a useful projects and understanding how its different parts fit together.
                 </p>
               </div>
             </div>
@@ -85,7 +80,7 @@ export default async function AboutPage() {
                 ))}
               </div>
               <p className="text-text-secondary mt-5 border-t border-border pt-4">
-                After my A-levels, I’m aiming for a cyber security apprenticeship where I can keep
+                After my A Levels, I'm aiming for a cyber security apprenticeship where I can keep
                 learning and contribute to real teams.
               </p>
             </Card>
@@ -93,7 +88,7 @@ export default async function AboutPage() {
 
           <div>
             <SectionHeading
-              title="What I’m building"
+              title="What I'm building"
               subtitle="My main development project right now is my school Computer Science project."
             />
             <Card className="mt-6">
@@ -106,7 +101,7 @@ export default async function AboutPage() {
                     </h3>
                   </div>
                   <p className="text-text-secondary mt-3 max-w-3xl leading-relaxed">
-                    I’m actively developing a desktop social media scheduling tool using Electron
+                    I'm actively developing a desktop social media scheduling tool using Electron
                     and Next.js. I want people to be able to use their own API keys, with the goal
                     of keeping the project free and open source.
                   </p>
@@ -123,7 +118,7 @@ export default async function AboutPage() {
                 ))}
               </div>
               <p className="text-text-muted mt-5 border-t border-border pt-4 text-sm">
-                I’ll add more details as the project develops.
+                I'll add more details as the project develops.
               </p>
             </Card>
           </div>
@@ -135,12 +130,12 @@ export default async function AboutPage() {
                   <ShieldCheck className="text-accent h-5 w-5" aria-hidden="true" />
                 </div>
                 <h2 className="text-text-primary text-xl font-semibold">
-                  Learning application security
+                  Learning AppSec
                 </h2>
               </div>
               <p className="text-text-secondary mt-4 leading-relaxed">
-                I’m at the start of my AppSec journey. I’m learning about common web
-                vulnerabilities and how to build software with security in mind. I’m also planning
+                I'm at the start of my AppSec journey. I'm learning about common web
+                vulnerabilities and how to build software with security in mind. I'm also planning
                 to work through PortSwigger Web Security Academy to put that learning into practice.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
@@ -160,8 +155,9 @@ export default async function AboutPage() {
                 <h2 className="text-text-primary text-xl font-semibold">Away from the keyboard</h2>
               </div>
               <p className="text-text-secondary mt-4 leading-relaxed">
-                I love reading and learning theology. Theology interests me deeply and give me something
-                challenging to think about outside coding.
+                I love reading and learning theology. Theology interests me deeply and gives me a lot to think about.
+
+                Table tennis is my favourite sport to play, and I also enjoy boxing and badminton. I like to spend time with friends and family, and I enjoy going for walks in the countryside.
               </p>
             </Card>
           </div>
@@ -169,7 +165,7 @@ export default async function AboutPage() {
           <div>
             <SectionHeading
               title="The tools I use"
-              subtitle="A selection of technologies from my full-stack development toolkit."
+              subtitle="A selection of technologies from my full stack development knowledge."
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {technicalSkills.map((group) => (
@@ -217,10 +213,10 @@ export default async function AboutPage() {
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2 className="text-text-primary text-2xl font-bold">
-                  Let’s build something useful.
+                  Let's build something useful.
                 </h2>
                 <p className="text-text-secondary mt-2">
-                  Take a look at what I’m working on or get in touch.
+                  Take a look at what I'm working on or get in touch.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
