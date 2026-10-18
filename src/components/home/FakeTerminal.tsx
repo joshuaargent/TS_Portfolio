@@ -42,7 +42,10 @@ function buildFiles(resume: ResumeData): Record<string, string[]> {
       '',
       'Type "help" to explore this interactive portfolio.',
     ],
-    'about.txt': resume.summary.split('\n').map((line) => line.trim()).filter(Boolean),
+    'about.txt': resume.summary
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean),
     'skills.txt': resume.skills.flatMap((group) => [
       `${group.category}:`,
       `  ${group.items.join(', ')}`,
@@ -50,7 +53,7 @@ function buildFiles(resume: ResumeData): Record<string, string[]> {
     ]),
     'experience.txt': [...resume.workExperience, ...resume.employment].flatMap((job) => [
       `${job.role} — ${job.company}`,
-      `${job.startDate} to ${job.current ? 'Present' : job.endDate ?? 'Earlier'} | ${job.location}`,
+      `${job.startDate} to ${job.current ? 'Present' : (job.endDate ?? 'Earlier')} | ${job.location}`,
       job.description,
       ...job.highlights.map((highlight) => `  • ${highlight}`),
       '',
@@ -81,7 +84,11 @@ function outputLines(text: string | string[]): TerminalLine[] {
   }));
 }
 
-function runCommand(raw: string, resume: ResumeData, files: Record<string, string[]>): CommandResult {
+function runCommand(
+  raw: string,
+  resume: ResumeData,
+  files: Record<string, string[]>
+): CommandResult {
   const [command, ...args] = raw.trim().split(/\s+/);
   const argument = args.join(' ');
 
@@ -127,9 +134,7 @@ function runCommand(raw: string, resume: ResumeData, files: Record<string, strin
       };
     case 'contact':
       return {
-        lines: outputLines([
-          'Open /contact to get in touch.',
-        ]),
+        lines: outputLines(['Open /contact to get in touch.']),
       };
     case 'ls':
       return { lines: outputLines(Object.keys(files).join('  ')) };
@@ -151,10 +156,18 @@ function runCommand(raw: string, resume: ResumeData, files: Record<string, strin
     case 'clear':
       return { lines: [], clear: true };
     case 'exit':
-      return { lines: outputLines('Session ended. Use the restart button to explore again.'), exit: true };
+      return {
+        lines: outputLines('Session ended. Use the restart button to explore again.'),
+        exit: true,
+      };
     default:
       return {
-        lines: [{ type: 'error', text: `command not found: ${command}. Type "help" to see available commands.` }],
+        lines: [
+          {
+            type: 'error',
+            text: `command not found: ${command}. Type "help" to see available commands.`,
+          },
+        ],
       };
   }
 }
@@ -214,10 +227,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
           tokens[tokens.length - 1] = matches[0];
           setInput(tokens.join(' '));
         } else if (matches.length > 1) {
-          setLines((current) => [
-            ...current,
-            ...outputLines(matches.join('  ')),
-          ]);
+          setLines((current) => [...current, ...outputLines(matches.join('  '))]);
         }
         return;
       }
@@ -281,20 +291,23 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
           subtitle="A hands-on way to explore my background. Try commands like skills, projects, or experience."
         />
 
-        <Card padding="none" className="mt-6 w-full overflow-hidden font-mono text-sm leading-relaxed">
-          <div className="flex items-center gap-2 border-b border-border bg-bg-secondary px-4 py-3">
+        <Card
+          padding="none"
+          className="mt-6 w-full overflow-hidden font-mono text-sm leading-relaxed"
+        >
+          <div className="border-border bg-bg-secondary flex items-center gap-2 border-b px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden="true" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-400" aria-hidden="true" />
-            <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
-            <span className="ml-2 text-xs text-text-muted">joshua@portfolio: ~</span>
-            <span className="ml-auto rounded-full bg-accent-light px-2 py-0.5 text-xs font-medium text-accent">
+            <span className="bg-accent h-2.5 w-2.5 rounded-full" aria-hidden="true" />
+            <span className="text-text-muted ml-2 text-xs">joshua@portfolio: ~</span>
+            <span className="bg-accent-light text-accent ml-auto rounded-full px-2 py-0.5 text-xs font-medium">
               interactive
             </span>
           </div>
 
           <div
             ref={terminalBodyRef}
-            className="h-80 cursor-text overflow-y-auto bg-bg-card p-4 text-text-secondary sm:p-5"
+            className="bg-bg-card text-text-secondary h-80 cursor-text overflow-y-auto p-4 sm:p-5"
             onClick={() => !exited && inputRef.current?.focus()}
             role="log"
             aria-label="Interactive portfolio terminal"
@@ -303,7 +316,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
             {lines.map((line, index) => (
               <div
                 key={`${index}-${line.text}`}
-                className={`whitespace-pre-wrap break-words ${
+                className={`break-words whitespace-pre-wrap ${
                   line.type === 'error'
                     ? 'text-red-600 dark:text-red-400'
                     : line.type === 'input'
@@ -313,7 +326,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
               >
                 {line.type === 'input' ? (
                   <>
-                    <span className="font-semibold text-accent">joshua@portfolio</span>
+                    <span className="text-accent font-semibold">joshua@portfolio</span>
                     <span className="text-text-muted">:~$ </span>
                     {line.text}
                   </>
@@ -326,7 +339,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
             {!exited && (
               <div className="flex items-center">
                 <label htmlFor="portfolio-terminal-input" className="shrink-0">
-                  <span className="font-semibold text-accent">joshua@portfolio</span>
+                  <span className="text-accent font-semibold">joshua@portfolio</span>
                   <span className="text-text-muted">:~$ </span>
                 </label>
                 <input
@@ -342,14 +355,14 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
                   autoCapitalize="off"
                   spellCheck={false}
                   aria-label="Enter a terminal command"
-                  className="min-w-0 flex-1 bg-transparent text-text-primary caret-accent outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+                  className="text-text-primary caret-accent min-w-0 flex-1 bg-transparent ring-0 outline-none focus:ring-0 focus:outline-none focus-visible:ring-0 focus-visible:outline-none"
                   style={{ outline: 'none', boxShadow: 'none' }}
                 />
               </div>
             )}
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-bg-secondary px-4 py-3 text-xs text-text-muted">
+          <div className="border-border bg-bg-secondary text-text-muted flex flex-wrap items-center justify-between gap-3 border-t px-4 py-3 text-xs">
             <span>
               {exited ? 'Session closed' : '↑/↓ history · Tab autocomplete · Ctrl+L clear'}
             </span>
@@ -357,7 +370,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
               <button
                 type="button"
                 onClick={restart}
-                className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-medium text-accent transition-colors hover:bg-bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="text-accent hover:bg-bg-card focus-visible:ring-accent inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
               >
                 <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
                 Restart session
