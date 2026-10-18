@@ -46,7 +46,7 @@ export function Hero() {
                 src="/images/avatar.jpg"
                 alt="Joshua"
                 size="xl"
-                className="border-bg-card relative border-4 shadow-xl"
+                className="border-bg-card relative border-4 shadow-xl lg:h-40 lg:w-40 xl:h-56 xl:w-56"
               />
             </div>
           </div>
