@@ -5,7 +5,7 @@ import { ResumeData } from '@/types';
 // ============================================
 
 export const resumeData: ResumeData = {
-  summary: `Year 13 student full stack developer exploring application security. Skilled in Next.js, TypeScript, and API driven applications.
+  summary: `Year 13 student and full stack developer exploring application security. Skilled in Next.js, TypeScript, and API driven applications.
 
   Looking for apprenticeships, and opportunities where I can contribute, learn fast, and help people.`,
 
@@ -14,14 +14,8 @@ export const resumeData: ResumeData = {
       id: '1',
       name: 'Personal Portfolio',
       description:
-        "This website - I built it to showcase my work and skills. It pulls data from GitHub for maintainability.",
-      techStack: [
-        'Next.js',
-        'React',
-        'TypeScript',
-        'GitHub API',
-        'Vercel',
-      ],
+        'This website - I built it to showcase my work and skills. It pulls data from GitHub for maintainability.',
+      techStack: ['Next.js', 'React', 'TypeScript', 'GitHub API', 'Vercel'],
       url: 'https://github.com/joshuaargent/portfolio',
       highlights: [
         'Integrated GitHub API for real time data display',
@@ -31,27 +25,34 @@ export const resumeData: ResumeData = {
   ],
 
   skills: [
-    { 
+    {
       category: 'Languages',
-      items: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
-    { 
+      items: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'],
+    },
+    {
       category: 'Frontend',
-      items: ['Next.js', 'React', 'Tailwind CSS', 'Zustand'] },
-    { 
+      items: ['Next.js', 'React', 'Tailwind CSS', 'Zustand'],
+    },
+    {
       category: 'Backend',
-      items: ['Node.js', 'Nest.js', 'Express.js'] },
-    { 
+      items: ['Node.js', 'Nest.js', 'Express.js'],
+    },
+    {
       category: 'Database & Auth',
-      items: ['PostgreSQL', 'Supabase', 'JWT'] },
-    { 
+      items: ['PostgreSQL', 'Supabase', 'JWT'],
+    },
+    {
       category: 'Integrations',
-      items: ['YouTube API', 'GitHub API'] },
-    { 
+      items: ['YouTube API', 'GitHub API'],
+    },
+    {
       category: 'Deployment',
-      items: ['Vercel', 'Render'] },
-    { 
+      items: ['Vercel', 'Render'],
+    },
+    {
       category: 'Tools',
-      items: ['Git', 'GitHub'] },  
+      items: ['Git', 'GitHub'],
+    },
   ],
 
   workExperience: [
@@ -82,7 +83,11 @@ export const resumeData: ResumeData = {
       location: 'Surrey, United Kingdom',
       startDate: '2025-09',
       endDate: '2027-07',
-      highlights: ['Computer Science', 'Mathematics', 'Geography'],
+      highlights: [
+        'Computer Science: A (Predicted)',
+        'Mathematics: C (Predicted)',
+        'Geography: A (Predicted)',
+      ],
     },
     {
       id: '3',
