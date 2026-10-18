@@ -5,6 +5,22 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const BASE_URL = 'https://api.github.com';
 
+interface GitHubRepositoryResponse {
+  id: number;
+  name: string;
+  full_name: string;
+  description: string | null;
+  html_url: string;
+  homepage: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+  topics?: string[];
+  created_at: string;
+  updated_at: string;
+  fork: boolean;
+}
+
 export async function getGitHubRepos(): Promise<GitHubRepo[]> {
   if (!GITHUB_USERNAME) {
     return [];
@@ -37,12 +53,28 @@ export async function getGitHubRepos(): Promise<GitHubRepo[]> {
         throw new Error(`GitHub API error: ${response.status}`);
       }
 
-      const data: GitHubRepo[] = await response.json();
+      const data: GitHubRepositoryResponse[] = await response.json();
       
-      if (!data.length || data.length === 0) {
+      if (data.length === 0) {
         hasNextPage = false;
       } else {
-        repos.push(...data);
+        repos.push(
+          ...data.map((repo) => ({
+            id: repo.id,
+            name: repo.name,
+            fullName: repo.full_name,
+            description: repo.description || repo.name,
+            url: repo.html_url,
+            homepage: repo.homepage || undefined,
+            stars: repo.stargazers_count,
+            forks: repo.forks_count,
+            language: repo.language || 'Unknown',
+            topics: repo.topics || [],
+            createdAt: repo.created_at,
+            updatedAt: repo.updated_at,
+            isFork: repo.fork,
+          }))
+        );
         page++;
         // Safety limit to prevent infinite loops
         if (page > 10) {
@@ -51,24 +83,8 @@ export async function getGitHubRepos(): Promise<GitHubRepo[]> {
       }
     }
 
-    return repos
-      .filter((repo) => !repo.isFork)
-      .map((repo) => ({
-        id: repo.id,
-        name: repo.name,
-        fullName: repo.fullName,
-        description: repo.description || repo.name,
-        url: repo.url,
-        homepage: repo.homepage || undefined,
-        stars: repo.stars,
-        forks: repo.forks,
-        language: repo.language || 'Unknown',
-        topics: repo.topics || [],
-        createdAt: repo.createdAt,
-        updatedAt: repo.updatedAt,
-        isFork: repo.isFork,
-      }));
-  } catch (error) {
+    return repos.filter((repo) => !repo.isFork);
+  } catch {
     // Fail silently - return empty array for graceful degradation
     return [];
   }
@@ -94,7 +110,7 @@ export async function getGitHubProfile() {
     if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
 
     return await response.json();
-  } catch (error) {
+  } catch {
     // Fail silently
     return null;
   }
@@ -149,7 +165,7 @@ export async function getGitHubReadme(owner: string, repo: string): Promise<stri
     const readmeHtml = parseMarkdown(readmeContent);
     
     return readmeHtml;
-  } catch (error) {
+  } catch {
     // Fail silently
     return null;
   }
