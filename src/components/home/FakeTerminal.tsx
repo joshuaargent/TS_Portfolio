@@ -343,6 +343,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
                   spellCheck={false}
                   aria-label="Enter a terminal command"
                   className="min-w-0 flex-1 bg-transparent text-text-primary caret-accent outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+                  style={{ outline: 'none', boxShadow: 'none' }}
                 />
               </div>
             )}
