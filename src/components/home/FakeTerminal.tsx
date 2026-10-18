@@ -288,7 +288,7 @@ export default function FakeTerminal({ resume }: { resume: ResumeData }) {
       <div className="container">
         <SectionHeading
           title="Explore in the terminal"
-          subtitle="A hands-on way to explore my background. Try commands like skills, projects, or experience."
+          subtitle="Try commands like skills, projects, or experience."
         />
 
         <Card
