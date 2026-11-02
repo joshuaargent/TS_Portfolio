@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
     category: ['writeups'],
     readingTime: '4 min read',
     featured: true,
-    coverImage: '/images/blog/cathoscroll.jpg',
+    coverImage: '/images/blog/cathoscroll.png',
   },
 ];
 
