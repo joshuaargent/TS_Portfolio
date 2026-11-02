@@ -50,8 +50,8 @@ export const footerNav = {
     { label: 'Contact', href: '/contact' },
   ],
   featured: [
-    { label: 'CathoScroll', href: '/projects/cathoscroll' },
-    { label: 'Portfolio', href: '/projects/portfolio' },
+    { label: 'CathoScroll', href: '/projects/ts-cathoscroll' },
+    { label: 'Portfolio', href: '/projects/ts-portfolio' },
   ],
   social: [
     { label: 'GitHub', href: 'https://github.com/joshuaargent' },
