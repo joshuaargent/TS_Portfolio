@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
     <h2>Final Thoughts</h2>
 
     <p>
-      CathoScroll combines several things I'm interested in: software
+      <a href="/projects/ts-cathoscroll">CathoScroll</a> combines several things I'm interested in: software
       development, product design, education, and theology.
     </p>
 

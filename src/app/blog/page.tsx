@@ -5,18 +5,18 @@ import { PostCard } from '@/components/blog/PostCard';
 import { SearchBarWrapper } from '@/components/shared/SearchBarWrapper';
 import { getBlogPosts, getFeaturedBlogPosts } from '@/data/blog';
 import { ArrowRight } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Articles, project writeups, and learning notes from Joshua Argent on web development, software projects, and application security.',
-  alternates: { canonical: '/blog' },
-  openGraph: {
+  ...createPageMetadata({
     title: 'Blog | Joshua Argent',
     description:
       'Web development articles, project writeups, and learning notes from Joshua Argent.',
-    url: '/blog',
-  },
+    path: '/blog',
+  }),
 };
 
 export default async function BlogPage() {

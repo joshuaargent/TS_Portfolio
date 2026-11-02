@@ -7,19 +7,20 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { getResumeData } from '@/data/resume';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
     'Meet Joshua Argent, a full stack developer building projects such as CathoScroll while learning application security.',
-  alternates: { canonical: '/about' },
-  openGraph: {
-    type: 'profile',
+  ...createPageMetadata({
     title: 'About Joshua Argent',
     description:
       'Learn about Joshua Argent, a full stack developer in Surrey building web applications and exploring application security.',
-    url: '/about',
-  },
+    path: '/about',
+    type: 'profile',
+    socialTitle: 'About Joshua Argent',
+  }),
 };
 
 const learningTopics = ['OWASP Top 10', 'PortSwigger Web Security Academy'];

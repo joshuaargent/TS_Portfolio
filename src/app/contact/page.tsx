@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { siteConfig } from '@/lib/constants';
 import { Mail, MapPin, Send } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
 const personalInfo = {
   email: siteConfig.links.email,
@@ -27,7 +28,12 @@ export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Contact Joshua Argent in Surrey, UK, about web development, software projects, collaboration, or application security.',
-  alternates: { canonical: '/contact' },
+  ...createPageMetadata({
+    title: 'Contact Joshua Argent',
+    description:
+      'Contact Joshua Argent in Surrey, UK, about web development, software projects, collaboration, or application security.',
+    path: '/contact',
+  }),
 };
 
 export default function ContactPage() {

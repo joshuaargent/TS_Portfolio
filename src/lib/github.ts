@@ -1,8 +1,12 @@
 import { GitHubRepo } from '@/types';
 import { parseMarkdown } from './markdown';
+import { siteConfig } from './constants';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+const DEFAULT_GITHUB_USERNAME = new URL(siteConfig.links.github).pathname
+  .split('/')
+  .filter(Boolean)[0];
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME || DEFAULT_GITHUB_USERNAME;
 const BASE_URL = 'https://api.github.com';
 
 interface GitHubRepositoryResponse {

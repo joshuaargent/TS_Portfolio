@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { BlogArchiveClient } from '@/components/blog/BlogArchiveClient';
 import { getBlogPosts } from '@/data/blog';
+import { createPageMetadata } from '@/lib/seo';
 
 // ============================================
 // Metadata
@@ -10,7 +11,11 @@ import { getBlogPosts } from '@/data/blog';
 export const metadata: Metadata = {
   title: 'Blog Archive',
   description: 'Browse the complete archive of articles and project writeups by Joshua Argent.',
-  alternates: { canonical: '/blog/archive' },
+  ...createPageMetadata({
+    title: 'Blog Archive | Joshua Argent',
+    description: 'Browse the complete archive of articles and project writeups by Joshua Argent.',
+    path: '/blog/archive',
+  }),
 };
 
 // ============================================

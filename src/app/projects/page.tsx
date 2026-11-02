@@ -6,18 +6,18 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { getProjects, getFeaturedProjects } from '@/data/projects';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Projects',
   description:
     'Explore web applications and software built by Joshua Argent, including projects using TypeScript, React, Next.js, and Node.js.',
-  alternates: { canonical: '/projects' },
-  openGraph: {
+  ...createPageMetadata({
     title: 'Projects by Joshua Argent',
     description:
       'Explore web applications and software built by Joshua Argent with TypeScript, React, Next.js, and Node.js.',
-    url: '/projects',
-  },
+    path: '/projects',
+  }),
 };
 
 export default async function ProjectsPage() {

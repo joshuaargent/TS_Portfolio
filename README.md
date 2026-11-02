@@ -81,7 +81,7 @@ Integrations are optional. Add only the variables you need to `.env.local` in th
 
 | Variable                        | Purpose                                                                                               |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `GITHUB_USERNAME`               | GitHub account whose repositories are displayed.                                                      |
+| `GITHUB_USERNAME`               | Optional GitHub account override for displayed repositories. Defaults to the portfolio owner.         |
 | `GITHUB_TOKEN`                  | Optional token to increase GitHub API rate limits.                                                    |
 | `NEXT_PUBLIC_SITE_URL`          | Canonical site URL used for metadata, sitemap, and RSS links. Defaults to the deployed portfolio URL. |
 | `NEXT_PUBLIC_FORMSPREE_FORM_ID` | Optional Formspree form ID to enable contact form submissions.                                        |

@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { getResumeData } from '@/data/resume';
 import { formatDate } from '@/lib/utils';
+import { createPageMetadata } from '@/lib/seo';
 import {
   Download,
   ExternalLink,
@@ -22,7 +23,12 @@ export const metadata: Metadata = {
   title: 'Resume',
   description:
     'View Joshua Argent’s resume, including web development projects, technical skills, education, and experience.',
-  alternates: { canonical: '/resume' },
+  ...createPageMetadata({
+    title: 'Resume | Joshua Argent',
+    description:
+      'View Joshua Argent’s resume, including web development projects, technical skills, education, and experience.',
+    path: '/resume',
+  }),
 };
 
 export default async function ResumePage() {

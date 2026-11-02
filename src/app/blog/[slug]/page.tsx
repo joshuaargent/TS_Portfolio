@@ -10,6 +10,7 @@ import { formatDate } from '@/lib/utils';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { siteConfig } from '@/lib/constants';
 import { JsonLd } from '@/components/shared/JsonLd';
+import { createBreadcrumbData, createPageMetadata } from '@/lib/seo';
 
 // ============================================
 // Types
@@ -45,27 +46,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const image = post.coverImage || siteConfig.ogImage;
+  const pageMetadata = createPageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    image: post.coverImage || siteConfig.ogImage,
+    type: 'article',
+    socialTitle: `${post.title} | ${siteConfig.name}`,
+  });
 
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    ...pageMetadata,
     openGraph: {
+      ...pageMetadata.openGraph,
       type: 'article',
-      title: post.title,
-      description: post.excerpt,
-      url: `/blog/${post.slug}`,
-      images: [image],
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       tags: post.tags,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: [image],
     },
   };
 }
@@ -123,6 +122,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           articleSection: post.category,
           keywords: post.tags,
         }}
+      />
+      <JsonLd
+        data={createBreadcrumbData([
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
       />
       <div className="container max-w-4xl">
         {/* Back Link */}

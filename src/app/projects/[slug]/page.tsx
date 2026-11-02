@@ -7,6 +7,7 @@ import { SectionHeading } from '@/components/shared/SectionHeading';
 import { getProjectBySlug, getProjects } from '@/data/projects';
 import { siteConfig } from '@/lib/constants';
 import { JsonLd } from '@/components/shared/JsonLd';
+import { createBreadcrumbData, createPageMetadata } from '@/lib/seo';
 
 // ============================================
 // Types
@@ -42,23 +43,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const pageMetadata = createPageMetadata({
+    title: project.name,
+    description: project.description,
+    path: `/projects/${project.slug}`,
+    socialTitle: `${project.name} | Projects by Joshua Argent`,
+  });
+
   return {
     title: project.name,
     description: project.description,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      type: 'website',
-      title: `${project.name} | Projects by Joshua Argent`,
-      description: project.description,
-      url: `/projects/${project.slug}`,
-      images: [siteConfig.ogImage],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${project.name} | Projects by Joshua Argent`,
-      description: project.description,
-      images: [siteConfig.ogImage],
-    },
+    ...pageMetadata,
   };
 }
 
@@ -120,6 +115,13 @@ export default async function ProjectPage({ params }: PageProps) {
           ...(project.createdAt && { dateCreated: project.createdAt }),
           ...(project.updatedAt && { dateModified: project.updatedAt }),
         }}
+      />
+      <JsonLd
+        data={createBreadcrumbData([
+          { name: 'Home', path: '/' },
+          { name: 'Projects', path: '/projects' },
+          { name: project.name, path: `/projects/${project.slug}` },
+        ])}
       />
       <div className="container">
         <ProjectDetail project={projectWithReadme} />
