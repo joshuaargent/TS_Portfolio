@@ -111,10 +111,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Content */}
+          {/* Featured */}
           <div>
             <h3 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-              Content
+              Featured
             </h3>
             <ul className="mt-4 space-y-2">
               {(footerNav.featured as { href: string; label: string }[]).map((item) => (
