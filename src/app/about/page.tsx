@@ -1,12 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  BookOpen,
-  Code2,
-  GraduationCap,
-  ShieldCheck,
-} from 'lucide-react';
+import { ArrowRight, BookOpen, Code2, GraduationCap, ShieldCheck } from 'lucide-react';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { Badge } from '@/components/ui/Badge';
@@ -17,7 +11,7 @@ import { getResumeData } from '@/data/resume';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Meet Joshua Argent, a full stack developer building software and learning application security.',
+    'Meet Joshua Argent, a full stack developer building projects such as CathoScroll while learning application security.',
 };
 
 const learningTopics = ['OWASP Top 10', 'PortSwigger Web Security Academy'];
@@ -26,9 +20,15 @@ export default async function AboutPage() {
   const resume = await getResumeData();
   const aLevels = resume.education.find((education) => education.degree === 'A Levels');
   const technicalSkills = resume.skills.filter((skill) =>
-    ['Languages', 'Frontend', 'Backend', 'Database & Auth', 'Integrations', 'Deployment', 'Tools'].includes(
-      skill.category
-    )
+    [
+      'Languages',
+      'Frontend',
+      'Backend',
+      'Database & Auth',
+      'Integrations',
+      'Deployment',
+      'Tools',
+    ].includes(skill.category)
   );
 
   return (
@@ -47,13 +47,15 @@ export default async function AboutPage() {
               <div className="text-text-secondary mt-5 space-y-4 text-lg leading-relaxed">
                 <p>
                   I got into web development during the summer holiday between Year 11 and Year 12.
-                  This started as me just being curious but quickly became something I  wanted to learn a
-                  lot more about.
+                  This started as me just being curious but quickly became something I wanted to
+                  learn a lot more about.
                 </p>
                 <p>
                   Since then, I've developed a foundation across the full stack, working with
-                  TypeScript, React, Next.js, Node.js, and APIs. I enjoy turning some of the ideas I have into
-                  a useful projects and understanding how its different parts fit together.
+                  TypeScript, React, Next.js, Node.js, and APIs. One of my largest projects so far
+                  is CathoScroll, a Catholic learning platform featuring authentication, public
+                  profiles, discussion features, bookmarks, progress tracking, search, and
+                  SEO-focused content discovery.
                 </p>
               </div>
             </div>
@@ -79,7 +81,7 @@ export default async function AboutPage() {
                   </Badge>
                 ))}
               </div>
-              <p className="text-text-secondary mt-5 border-t border-border pt-4">
+              <p className="text-text-secondary border-border mt-5 border-t pt-4">
                 After my A Levels, I'm aiming for a cyber security apprenticeship where I can keep
                 learning and contribute to real teams.
               </p>
@@ -117,7 +119,7 @@ export default async function AboutPage() {
                   </Badge>
                 ))}
               </div>
-              <p className="text-text-muted mt-5 border-t border-border pt-4 text-sm">
+              <p className="text-text-muted border-border mt-5 border-t pt-4 text-sm">
                 I'll add more details as the project develops.
               </p>
             </Card>
@@ -129,14 +131,12 @@ export default async function AboutPage() {
                 <div className="bg-accent-light rounded-lg p-2.5">
                   <ShieldCheck className="text-accent h-5 w-5" aria-hidden="true" />
                 </div>
-                <h2 className="text-text-primary text-xl font-semibold">
-                  Learning AppSec
-                </h2>
+                <h2 className="text-text-primary text-xl font-semibold">Learning AppSec</h2>
               </div>
               <p className="text-text-secondary mt-4 leading-relaxed">
-                I'm at the start of my AppSec journey. I'm learning about common web
-                vulnerabilities and how to build software with security in mind. I'm also planning
-                to work through PortSwigger Web Security Academy to put that learning into practice.
+                I'm currently learning about application security, common web vulnerabilities and
+                how to build software with security in mind. I'm also planning to work through
+                PortSwigger Web Security Academy to put that learning into practice.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {learningTopics.map((topic) => (
@@ -155,9 +155,10 @@ export default async function AboutPage() {
                 <h2 className="text-text-primary text-xl font-semibold">Away from the keyboard</h2>
               </div>
               <p className="text-text-secondary mt-4 leading-relaxed">
-                I love reading and learning theology. Theology interests me deeply and gives me a lot to think about.
-
-                Table tennis is my favourite sport to play, and I also enjoy boxing and badminton. I like to spend time with friends and family, and I enjoy going for walks in the countryside.
+                I love reading and learning theology. Theology interests me deeply and gives me a
+                lot to think about. Table tennis is my favourite sport to play, and I also enjoy
+                boxing and badminton. I like to spend time with friends and family, and I enjoy
+                going for walks in the countryside.
               </p>
             </Card>
           </div>
@@ -199,9 +200,7 @@ export default async function AboutPage() {
                       {experience.description}
                     </p>
                     {experience.highlights.length > 0 && (
-                      <p className="text-text-muted mt-3 text-sm">
-                        {experience.highlights[0]}
-                      </p>
+                      <p className="text-text-muted mt-3 text-sm">{experience.highlights[0]}</p>
                     )}
                   </Card>
                 ))}
@@ -212,11 +211,10 @@ export default async function AboutPage() {
           <Card className="bg-bg-secondary">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <h2 className="text-text-primary text-2xl font-bold">
-                  Let's build something useful.
-                </h2>
+                <h2 className="text-text-primary text-2xl font-bold">Let's connect.</h2>
                 <p className="text-text-secondary mt-2">
-                  Take a look at what I'm working on or get in touch.
+                  I'm always interested in discussing technology, security, development, and
+                  interesting projects.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
