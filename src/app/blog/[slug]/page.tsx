@@ -8,6 +8,8 @@ import { TagList } from '@/components/blog/TagList';
 import { getBlogPostBySlug, getBlogPosts } from '@/data/blog';
 import { formatDate } from '@/lib/utils';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { siteConfig } from '@/lib/constants';
+import { JsonLd } from '@/components/shared/JsonLd';
 
 // ============================================
 // Types
@@ -39,17 +41,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) {
     return {
       title: 'Post Not Found',
+      robots: { index: false, follow: false },
     };
   }
+
+  const image = post.coverImage || siteConfig.ogImage;
 
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: 'article',
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      images: [image],
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       tags: post.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [image],
     },
   };
 }
@@ -70,6 +86,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedPosts = allPosts
     .filter((p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t)))
     .slice(0, 2);
+  const postUrl = new URL(`/blog/${post.slug}`, siteConfig.url).toString();
 
   const categoryColors = {
     writeups: 'writeups',
@@ -79,6 +96,34 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="py-12 md:py-16">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.publishedAt,
+          ...(post.updatedAt && { dateModified: post.updatedAt }),
+          mainEntityOfPage: postUrl,
+          url: postUrl,
+          inLanguage: 'en-GB',
+          author: {
+            '@type': 'Person',
+            name: siteConfig.author.name,
+            url: siteConfig.url,
+          },
+          publisher: {
+            '@type': 'Person',
+            name: siteConfig.author.name,
+            url: siteConfig.url,
+          },
+          image: post.coverImage
+            ? new URL(post.coverImage, siteConfig.url).toString()
+            : new URL(siteConfig.ogImage, siteConfig.url).toString(),
+          articleSection: post.category,
+          keywords: post.tags,
+        }}
+      />
       <div className="container max-w-4xl">
         {/* Back Link */}
         <Link

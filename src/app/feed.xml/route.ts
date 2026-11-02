@@ -21,7 +21,7 @@ export async function GET() {
     <managingEditor>${siteConfig.links.email} (${siteConfig.name})</managingEditor>
     <webMaster>${siteConfig.links.email} (${siteConfig.name})</webMaster>
     <image>
-      <url>${baseUrl}/og-image.png</url>
+      <url>${baseUrl}${siteConfig.ogImage}</url>
       <title>${siteConfig.name}</title>
       <link>${baseUrl}</link>
     </image>

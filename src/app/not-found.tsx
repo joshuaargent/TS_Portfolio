@@ -1,10 +1,16 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Button } from '@/components/ui/Button';
 import { Home, ArrowLeft } from 'lucide-react';
 
 // ============================================
 // 404 Page
 // ============================================
+
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

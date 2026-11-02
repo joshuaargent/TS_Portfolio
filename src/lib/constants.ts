@@ -6,9 +6,10 @@ import { SiteConfig, NavItem } from '@/types';
 
 export const siteConfig: SiteConfig = {
   name: 'Joshua Argent',
-  description: 'Full Stack Developer | Building CathoScroll | Exploring AppSec',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://joshuaargent.vercel.app',
-  ogImage: '/og-image.png',
+  description:
+    'Joshua Argent is a Surrey based full stack developer building TypeScript and Next.js applications, including CathoScroll, and learning application security.',
+  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://joshuaargent.vercel.app').replace(/\/+$/, ''),
+  ogImage: '/images/avatar.jpg',
   links: {
     email: 'argentjackjoshua@gmail.com',
     github: 'https://github.com/joshuaargent',
@@ -68,19 +69,18 @@ export const footerNav = {
 // ============================================
 
 export const meta = {
-  title: 'Joshua Argent',
-  description: 'Full Stack Developer | Building CathoScroll | Exploring AppSec',
+  title: 'Joshua Argent | Full Stack Developer',
+  description: siteConfig.description,
   github: 'https://github.com/joshuaargent',
   keywords: [
-    'Joshua',
-    'Argent',
-    'Web Developer',
-    'Portfolio',
-    'Projects',
-    'Blog',
-    'Resume',
-    'Contact',
-    'About',
+    'Joshua Argent',
+    'full stack developer',
+    'TypeScript developer',
+    'Next.js developer',
+    'web development portfolio',
+    'CathoScroll',
+    'application security',
+    'Surrey',
+    'United Kingdom',
   ] as string[],
-  instagramHandle: '@joshua_argent',
 } as const;

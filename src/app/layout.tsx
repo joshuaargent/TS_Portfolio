@@ -22,6 +22,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   manifest: '/manifest.json',
+  applicationName: siteConfig.name,
   title: {
     default: meta.title,
     template: `%s | ${siteConfig.name}`,
@@ -30,6 +31,9 @@ export const metadata: Metadata = {
   keywords: meta.keywords,
   authors: [{ name: siteConfig.author.name }],
   creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
+  category: 'technology',
+  referrer: 'origin-when-cross-origin',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-icon.png',
@@ -48,9 +52,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
+        width: 800,
+        height: 800,
+        alt: `${siteConfig.author.name} — full stack developer`,
       },
     ],
   },
@@ -59,7 +63,6 @@ export const metadata: Metadata = {
     title: meta.title,
     description: meta.description,
     images: [siteConfig.ogImage],
-    creator: meta.instagramHandle,
   },
   robots: {
     index: true,
@@ -70,12 +73,6 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
-    },
-  },
-  alternates: {
-    canonical: siteConfig.url,
-    types: {
-      'application/rss+xml': `${siteConfig.url}/feed.xml`,
     },
   },
 };
@@ -94,6 +91,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="theme-color" content="#FAFAF9" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0C0A09" media="(prefers-color-scheme: dark)" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${siteConfig.name} RSS Feed`}
+          href={`${siteConfig.url}/feed.xml`}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

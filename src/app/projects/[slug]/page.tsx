@@ -5,6 +5,8 @@ import { ProjectDetail } from '@/components/projects/ProjectDetail';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { getProjectBySlug, getProjects } from '@/data/projects';
+import { siteConfig } from '@/lib/constants';
+import { JsonLd } from '@/components/shared/JsonLd';
 
 // ============================================
 // Types
@@ -36,12 +38,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!project) {
     return {
       title: 'Project Not Found',
+      robots: { index: false, follow: false },
     };
   }
 
   return {
     title: project.name,
     description: project.description,
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      type: 'website',
+      title: `${project.name} | Projects by Joshua Argent`,
+      description: project.description,
+      url: `/projects/${project.slug}`,
+      images: [siteConfig.ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.name} | Projects by Joshua Argent`,
+      description: project.description,
+      images: [siteConfig.ogImage],
+    },
   };
 }
 
@@ -79,9 +96,31 @@ export default async function ProjectPage({ params }: PageProps) {
   const relatedProjects = allProjects
     .filter((p) => p.slug !== slug && p.tags.some((t) => project.tags.includes(t)))
     .slice(0, 2);
+  const projectUrl = new URL(`/projects/${project.slug}`, siteConfig.url).toString();
 
   return (
     <div className="py-8">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareSourceCode',
+          name: project.name,
+          description: project.description,
+          codeRepository: project.repoUrl,
+          url: project.liveUrl || projectUrl,
+          mainEntityOfPage: projectUrl,
+          author: {
+            '@type': 'Person',
+            name: siteConfig.author.name,
+            url: siteConfig.url,
+          },
+          ...(project.language && project.language !== 'Unknown'
+            ? { programmingLanguage: project.language }
+            : {}),
+          ...(project.createdAt && { dateCreated: project.createdAt }),
+          ...(project.updatedAt && { dateModified: project.updatedAt }),
+        }}
+      />
       <div className="container">
         <ProjectDetail project={projectWithReadme} />
 

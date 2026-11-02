@@ -25,7 +25,9 @@ const FORMSPREE_FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: "Get in touch. I'd love to hear from you.",
+  description:
+    'Contact Joshua Argent in Surrey, UK, about web development, software projects, collaboration, or application security.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {

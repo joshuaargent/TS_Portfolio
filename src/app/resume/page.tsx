@@ -20,7 +20,9 @@ import {
 
 export const metadata: Metadata = {
   title: 'Resume',
-  description: 'My professional experience, education, and skills.',
+  description:
+    'View Joshua Argent’s resume, including web development projects, technical skills, education, and experience.',
+  alternates: { canonical: '/resume' },
 };
 
 export default async function ResumePage() {

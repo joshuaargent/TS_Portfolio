@@ -8,7 +8,15 @@ import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: "Writeups, labs and notes on things I'm learning.",
+  description:
+    'Articles, project writeups, and learning notes from Joshua Argent on web development, software projects, and application security.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Blog | Joshua Argent',
+    description:
+      'Web development articles, project writeups, and learning notes from Joshua Argent.',
+    url: '/blog',
+  },
 };
 
 export default async function BlogPage() {

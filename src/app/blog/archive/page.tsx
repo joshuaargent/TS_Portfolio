@@ -9,7 +9,8 @@ import { getBlogPosts } from '@/data/blog';
 
 export const metadata: Metadata = {
   title: 'Blog Archive',
-  description: 'All blog posts.',
+  description: 'Browse the complete archive of articles and project writeups by Joshua Argent.',
+  alternates: { canonical: '/blog/archive' },
 };
 
 // ============================================
