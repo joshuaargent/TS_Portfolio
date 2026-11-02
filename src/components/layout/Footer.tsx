@@ -117,7 +117,7 @@ export function Footer() {
               Content
             </h3>
             <ul className="mt-4 space-y-2">
-              {(footerNav.content as { href: string; label: string }[]).map((item) => (
+              {(footerNav.featured as { href: string; label: string }[]).map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

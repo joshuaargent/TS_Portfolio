@@ -49,8 +49,9 @@ export const footerNav = {
     { label: 'Resume', href: '/resume' },
     { label: 'Contact', href: '/contact' },
   ],
-  content: [
-    
+  featured: [
+    { label: 'CathoScroll', href: '/projects/cathoscroll' },
+    { label: 'Portfolio', href: '/projects/portfolio' },
   ],
   social: [
     { label: 'GitHub', href: 'https://github.com/joshuaargent' },
@@ -68,7 +69,7 @@ export const footerNav = {
 
 export const meta = {
   title: 'Joshua Argent',
-  description: 'Web developer exploring application security',
+  description: 'Full Stack Developer | Building CathoScroll | Exploring AppSec',
   github: 'https://github.com/joshuaargent',
   keywords: [
     'Joshua',
