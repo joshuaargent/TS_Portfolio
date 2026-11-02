@@ -5,19 +5,58 @@ import { ResumeData } from '@/types';
 // ============================================
 
 export const resumeData: ResumeData = {
-  summary: `Year 13 student and full stack developer exploring application security. Skilled in Next.js, TypeScript, and API driven applications.
+  summary: `Year 13 student and full stack developer with experience building modern web applications using Next.js, React, TypeScript, and Supabase.
 
-  Looking for apprenticeships, and opportunities where I can contribute and learn fast.`,
+I'm particularly interested in application security and enjoy taking projects from idea to deployment. Currently seeking a cyber security apprenticeship where I can continue learning while contributing to real-world projects.`,
 
   projects: [
     {
       id: '1',
-      name: 'Personal Portfolio',
+      name: 'CathoScroll',
       description:
-        'This website - I built it to showcase my work and skills. It pulls data from GitHub for maintainability.',
+        'A Catholic learning platform featuring educational topics, community discussion, public profiles, bookmarks, progress tracking, categories, and search.',
+      techStack: [
+        'TypeScript',
+        'Next.js',
+        'React',
+        'Tailwind CSS',
+        'Supabase',
+        'PostgreSQL',
+        'Vercel',
+      ],
+      url: 'https://github.com/joshuaargent/TS_CathoScroll',
+      highlights: [
+        'Designed and developed a full stack educational platform from scratch',
+        'Implemented authentication, user profiles, comments, replies, likes, and bookmarks',
+        'Built search, categories, progress tracking, and public profile functionality',
+        'Implemented SEO features including metadata, sitemap generation, robots.txt, and structured content pages',
+      ],
+    },
+
+    {
+      id: '2',
+      name: 'Personal Portfolio',
+      description: 'My personal website for showcasing projects, writing, and technical interests.',
       techStack: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'GitHub API', 'Vercel'],
-      url: 'https://github.com/joshuaargent/portfolio',
-      highlights: ['Integrated GitHub API for real time data display'],
+      url: 'https://github.com/joshuaargent/TS_Portfolio',
+      highlights: [
+        'Integrated GitHub API for repository information',
+        'Built blog, resume, project showcase, and contact pages',
+        'Implemented sitemap, RSS feed, metadata, and responsive design',
+      ],
+    },
+
+    {
+      id: '3',
+      name: 'Social Media Scheduling Tool',
+      description:
+        'Desktop application being developed for my Computer Science project, designed to help users schedule content across multiple platforms using their own API keys.',
+      techStack: ['Electron', 'Next.js', 'TypeScript'],
+      highlights: [
+        'Designed as a desktop application using Electron',
+        'Focused on providing a free and accessible scheduling solution',
+        'Currently under active development',
+      ],
     },
   ],
 
@@ -28,43 +67,47 @@ export const resumeData: ResumeData = {
     },
     {
       category: 'Frontend',
-      items: ['Next.js', 'React', 'Tailwind CSS', 'Zustand'],
+      items: ['Next.js', 'React', 'Tailwind CSS'],
     },
     {
       category: 'Backend',
-      items: ['Node.js', 'Nest.js', 'Express.js'],
+      items: ['Node.js', 'Server Actions', 'API Routes'],
     },
     {
       category: 'Database & Auth',
-      items: ['PostgreSQL', 'Supabase', 'JWT'],
+      items: ['PostgreSQL', 'Supabase', 'Authentication'],
     },
     {
       category: 'Integrations',
-      items: ['YouTube API', 'GitHub API'],
+      items: ['GitHub API', 'Supabase'],
     },
     {
       category: 'Deployment',
-      items: ['Vercel', 'Render'],
+      items: ['Vercel'],
     },
     {
       category: 'Tools',
-      items: ['Git', 'GitHub'],
+      items: ['Git', 'GitHub', 'VS Code'],
     },
   ],
 
   workExperience: [
     {
       id: '1',
-      role: 'Lenovo Work Experience',
+      role: 'Work Experience Student',
       company: 'Lenovo',
       location: 'Farnborough, United Kingdom',
       startDate: '2025-11',
       current: false,
       endDate: '2025-11',
       description:
-        'Week long work experience shadowing different teams at Lenovo. Gained insight into how a large tech company operates and what to expect in a professional environment.',
-      highlights: ['Led planning of a hypothetical event which we pitched to the team'],
-      techStack: ['Communication', 'Leadership', 'Planning'],
+        'Completed a week of work experience across multiple teams at Lenovo, gaining insight into how a large technology company operates and delivers products and services.',
+      highlights: [
+        'Worked with students to plan and pitch a hypothetical event to Lenovo staff',
+        'Observed how different business and technical teams collaborate',
+        'Developed communication, teamwork, and presentation skills',
+      ],
+      techStack: ['Communication', 'Teamwork', 'Presentation'],
     },
   ],
 
@@ -82,8 +125,9 @@ export const resumeData: ResumeData = {
         'Geography: A (Predicted)',
       ],
     },
+
     {
-      id: '3',
+      id: '2',
       degree: 'GCSEs',
       institution: 'Collingwood College',
       location: 'Surrey, United Kingdom',
@@ -93,7 +137,7 @@ export const resumeData: ResumeData = {
         'Grade 8: Computer Science, Mathematics, Geography, Physics, Psychology',
         'Grade 7: Religious Studies, English Language',
         'Grade 6: Further Mathematics, English Literature, Business, Biology, Chemistry',
-        'BTEC: Engineering Manufacture (Distinction D2)',
+        'BTEC Engineering Manufacture: Distinction (D2)',
       ],
     },
   ],
@@ -108,12 +152,13 @@ export const resumeData: ResumeData = {
       endDate: '2023-09',
       current: false,
       description:
-        "Worked at Crowthorne's local newsagents doing customer service and shop floor work. I helped customers find what they needed and kept shelves stocked and tidy.",
+        'Provided customer service and maintained stock levels in a busy local newsagents.',
       highlights: [
-        'Helped customers find what they needed accurately and efficiently',
-        'Restocked shelves and kept the shop floor organised',
+        'Assisted customers and answered queries',
+        'Restocked shelves and maintained shop presentation',
+        'Developed communication and time management skills',
       ],
-      techStack: ['Customer Service', 'Time Management', 'Communication'],
+      techStack: ['Customer Service', 'Communication', 'Time Management'],
     },
   ],
 
