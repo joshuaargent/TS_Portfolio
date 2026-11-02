@@ -143,14 +143,17 @@ export default function ContactPage() {
               <Card>
                 <h3 className="text-text-primary mb-4 font-semibold">Connect</h3>
                 <div className="space-y-3">
-      
                   <a
                     href={socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:bg-bg-secondary flex items-center gap-3 rounded-lg p-2 transition-colors"
                   >
-                    <svg className="text-text-primary h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg
+                      className="text-text-primary h-5 w-5"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
                       <path
                         fill="currentColor"
                         d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.6-1.2-1.6-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 3 .9.1-.7.4-1.1.7-1.3-2.2-.3-4.6-1.2-4.6-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.6 10.6 0 0 1 5.6 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.4 5.2-4.7 5.5.4.3.7.9.7 1.8v2.6c0 .3.2.6.7.5A11.1 11.1 0 0 0 12 .9Z"
@@ -168,7 +171,12 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="hover:bg-bg-secondary flex items-center gap-3 rounded-lg p-2 transition-colors"
                   >
-                    <svg className="text-text-primary h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg
+                      className="text-text-primary h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.3V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
                     </svg>
                     <div>
@@ -237,7 +245,12 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="hover:bg-bg-secondary flex items-center gap-3 rounded-lg p-2 transition-colors"
                   >
-                    <svg className="text-text-primary h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg
+                      className="text-text-primary h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
                       <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.234V2h-3.12v13.761c0 1.648-1.372 2.99-3.058 2.99-1.685 0-3.057-1.342-3.057-2.99 0-1.647 1.372-2.989 3.057-2.989.311 0 .611.045.895.128V9.727a6.177 6.177 0 0 0-.895-.066C6.53 9.661 4 12.136 4 15.18c0 3.045 2.53 5.52 5.641 5.52 3.111 0 5.641-2.475 5.641-5.52V8.237a7.936 7.936 0 0 0 4.718 1.537V6.686h-.411z" />
                     </svg>
                     <div>
@@ -245,7 +258,6 @@ export default function ContactPage() {
                       <p className="text-text-muted text-xs">@joshua_argent</p>
                     </div>
                   </a>
-
                 </div>
               </Card>
 
