@@ -17,7 +17,7 @@ export function Hero() {
               Hi, I&apos;m <span className="text-accent">Joshua Argent</span>
             </h1>
             <p className="text-text-secondary mx-auto mt-6 max-w-xl text-lg md:text-xl lg:mx-0">
-              Web developer exploring application security
+              Full Stack Developer | Building CathoScroll | Exploring AppSec
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <Link
