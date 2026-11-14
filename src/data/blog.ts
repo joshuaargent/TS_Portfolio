@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
     </p>
 
     <p>
-      The result is an offline-capable architecture shared by the Android
+      The result is an offline capable architecture shared by the Android
       and Electron desktop applications, with Supabase remaining the online
       source of truth.
     </p>
@@ -108,7 +108,7 @@ export const blogPosts: BlogPost[] = [
       Getting the initial catalogue onto a device safely was just as
       important as reading it. The native build process exports the
       published content using the public Supabase configuration. Before
-      accepting the export, it checks the server-side counts and revision.
+      accepting the export, it checks the server side counts and revision.
       The resulting database is also checked using its checksum and
       SQLite integrity validation.
     </p>
@@ -165,8 +165,8 @@ export const blogPosts: BlogPost[] = [
     <p>
       Native authentication also needed to account for platform security.
       Android uses secure storage backed by Android Keystore, while the
-      Electron application uses operating-system secure storage. Encryption
-      keys are device-specific and are not included in Android backups.
+      Electron application uses operating system secure storage. Encryption
+      keys are device specific and are not included in Android backups.
     </p>
 
     <p>
@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
     <p>
       Account operations have different requirements. Signing in,
       signing up, and changing profile details require connectivity.
-      Comment creation and other comment writes remain online-only.
+      Comment creation and other comment writes remain online only.
       Notes can be read offline after being cached, but editing them
       requires the latest note to have been loaded online.
     </p>
@@ -289,7 +289,7 @@ export const blogPosts: BlogPost[] = [
     </p>
 
     <p>
-      There is still more to verify, particularly around real-device
+      There is still more to verify, particularly around real device
       upgrades, reconnection behaviour, and packaged desktop releases
       across different operating systems. Offline systems need to be
       tested in the conditions they are designed to handle, not just
