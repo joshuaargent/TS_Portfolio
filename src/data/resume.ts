@@ -45,19 +45,6 @@ I'm particularly interested in application security and enjoy taking projects fr
         'Implemented sitemap, RSS feed, metadata, and responsive design',
       ],
     },
-
-    {
-      id: '3',
-      name: 'Social Media Scheduling Tool',
-      description:
-        'Desktop application being developed for my Computer Science project, designed to help users schedule content across multiple platforms using their own API keys.',
-      techStack: ['Electron', 'Next.js', 'TypeScript'],
-      highlights: [
-        'Designed as a desktop application using Electron',
-        'Focused on providing a free and accessible scheduling solution',
-        'Currently under active development',
-      ],
-    },
   ],
 
   skills: [

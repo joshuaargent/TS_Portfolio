@@ -100,37 +100,51 @@ export default async function AboutPage() {
           <div>
             <SectionHeading
               title="What I'm building"
-              subtitle="My main development project right now is my school Computer Science project."
+              subtitle="My main development project is CathoScroll, a Catholic learning platform that I'm building from the ground up."
             />
             <Card className="mt-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <div className="flex flex-wrap items-center gap-3">
                     <Code2 className="text-accent h-6 w-6" aria-hidden="true" />
-                    <h3 className="text-text-primary text-xl font-semibold">
-                      Social Media Scheduling Tool
-                    </h3>
+                    <h3 className="text-text-primary text-xl font-semibold">CathoScroll</h3>
                   </div>
                   <p className="text-text-secondary mt-3 max-w-3xl leading-relaxed">
-                    I'm actively developing a desktop social media scheduling tool using Electron
-                    and Next.js. I want people to be able to use their own API keys, with the goal
-                    of keeping the project free and open source.
+                    I'm building CathoScroll, a Catholic learning platform designed to make
+                    exploring the faith more accessible. It includes educational content, community
+                    discussions, public profiles, bookmarks, progress tracking, categories, and
+                    search.
                   </p>
                 </div>
                 <Badge variant="accent" className="w-fit shrink-0">
-                  In progress
+                  Active project
                 </Badge>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
-                {['Electron', 'Next.js', 'Social media APIs'].map((technology) => (
+                {['TypeScript', 'Next.js', 'React', 'Supabase', 'PostgreSQL'].map((technology) => (
                   <Badge key={technology} variant="default">
                     {technology}
                   </Badge>
                 ))}
               </div>
-              <p className="text-text-muted border-border mt-5 border-t pt-4 text-sm">
-                I'll add more details as the project develops.
-              </p>
+              <div className="border-border mt-5 flex flex-wrap gap-4 border-t pt-4 text-sm">
+                <Link
+                  href="https://github.com/joshuaargent/TS_CathoScroll"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent font-medium hover:underline"
+                >
+                  View on GitHub →
+                </Link>
+                <Link
+                  href="https://cathoscroll.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent font-medium hover:underline"
+                >
+                  Visit CathoScroll →
+                </Link>
+              </div>
             </Card>
           </div>
 
